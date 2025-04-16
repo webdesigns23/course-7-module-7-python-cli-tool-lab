@@ -1,39 +1,38 @@
-# lib/cli_tool.py
+# cli_tool.py
 
 import argparse
-from lib.models import Task, User
+from models import Task, User
 
-# Global in-memory dictionary to hold user-task mappings
+# Global dictionary to store users and their tasks
 users = {}
 
-# TODO: Define a function to add a task
+# TODO: Implement function to add a task for a user
 def add_task(args):
-    # TODO:
-    # - Get or create a User instance
-    # - Create a Task from the input title
-    # - Add the Task to the User
+    # - Check if the user exists, if not, create one
+    # - Create a new Task with the given title
+    # - Add the task to the user's task list
     pass
 
-# TODO: Define a function to complete a task
+# TODO: Implement function to mark a task as complete
 def complete_task(args):
-    # TODO:
-    # - Find the user by name
-    # - Use get_task_by_title to find the task
-    # - Call the complete method or print an error
+    # - Look up the user by name
+    # - Look up the task by title
+    # - Mark the task as complete
+    # - Print appropriate error messages if not found
     pass
 
-# Main CLI handler using argparse
+# CLI entry point
 def main():
     parser = argparse.ArgumentParser(description="Task Manager CLI")
     subparsers = parser.add_subparsers()
 
-    # Subparser for adding a task
+    # Subparser for adding tasks
     add_parser = subparsers.add_parser("add-task", help="Add a task for a user")
     add_parser.add_argument("user")
     add_parser.add_argument("title")
     add_parser.set_defaults(func=add_task)
 
-    # Subparser for completing a task
+    # Subparser for completing tasks
     complete_parser = subparsers.add_parser("complete-task", help="Complete a user's task")
     complete_parser.add_argument("user")
     complete_parser.add_argument("title")
@@ -45,6 +44,5 @@ def main():
     else:
         parser.print_help()
 
-# Entry point
 if __name__ == "__main__":
     main()
