@@ -15,10 +15,6 @@ class Task:
         self.completed = True
         print(f"✅ Task '{self.title}' completed.")
 
-    def __repr__(self):
-        status = "yes" if self.completed else "no"
-        return f"{status} {self.title}"
-
 # TODO: Define the User class
 # Each user has a name and a list of tasks
 # Add methods to add tasks and search tasks by title
@@ -44,3 +40,5 @@ class User:
                 return task
             else:
                 return None
+            
+

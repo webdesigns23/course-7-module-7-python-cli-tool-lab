@@ -1,7 +1,7 @@
 # cli_tool.py
 
 import argparse
-from .models import Task, User
+from models import Task, User
 
 # Global dictionary to store users and their tasks
 users = {}
@@ -14,7 +14,7 @@ def add_task(args):
     user = users.get(args.user) or User(args.user)
     if not user:
         user = User(args.user)
-        user[args.user] = user
+        users[args.user] = user
     task = Task(args.title)
     user.add_task(task)
 
